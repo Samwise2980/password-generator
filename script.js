@@ -16,6 +16,19 @@ function writePassword() {
 // which meets the requirements in the instructions.
 function generatePassword() {
 
+  var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+  var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+
+  var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+  var specialCharacterArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", ",", "^", '_', "`", "{", "|", "}", "~"];
+  
+  var megaArrayGun = [];
+
+  var randomPass = "";
+
+
   // Ask the user how long they would want their password length
   var characterLengthSelect = prompt("How long would you like your password?\n Must be between 8 and 128 long.");
 
@@ -26,30 +39,34 @@ function generatePassword() {
   }
 
   // // Ask the user if they want lowercase characters
-  // var lowerCaseSelect = confirm("Click confirm for lowercase characters");
+  var lowerCaseSelect = confirm("Click confirm for lowercase characters");
+  
+  if (lowerCaseSelect === true) {
+    megaArrayGun = megaArrayGun.concat(lowerCaseArray);
+  }
 
+  // Ask the user if they want uppercase characters
+  var upperCaseSelect = confirm("Click confirm for uppercase characters");
 
-  // // Ask the user if they want uppercase characters
-  // var upperCaseSelect = confirm("Click confirm for uppercase characters");
-
+  if (upperCaseSelect === true) {
+    megaArrayGun = megaArrayGun.concat(upperCaseArray);
+  }
 
   // // Ask if the user wants numeric characters
-  // var numericSelect = confirm("Click confirm for numeric characters");
+  var numericSelect = confirm("Click confirm for numeric characters");
 
+  if (numericSelect === true) {
+    megaArrayGun = megaArrayGun.concat(numericArray);
+  }
   
-  // // Ask if the user wants special characters
-  // var specialCharacterSelect = confirm("Click confirm for special characters");
+  // Ask if the user wants special characters
+  var specialCharacterSelect = confirm("Click confirm for special characters");
+
+  if (specialCharacterSelect === true) {
+    megaArrayGun = megaArrayGun.concat(specialCharacterSelect);
+  }
 
 
-  var lowerCaseArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-  var upperCaseArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
-  var numericArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-
-  var specialCharacterArray = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", ",", "^", '_', "`", "{", "|", "}", "~"];
-  
-  var randomPass = "";
   // I need to pull each array that the user has chosen
   // function arrayGet() {
   //   //switch cases???
@@ -66,9 +83,10 @@ function generatePassword() {
 
   // I need to make a loop as many times as the password length is
   for (var i = 0; i < characterLengthSelect; i++) {
-    var randomItem = lowerCaseArray[Math.floor(Math.random()*lowerCaseArray.length)];
+    var randomItem = megaArrayGun[Math.floor(Math.random()*megaArrayGun.length)];
     randomPass = randomPass += randomItem;
     }
+  console.log(megaArrayGun);
   return randomPass
 
 //   var randomPass = Math.random().toString(36).substr(2, 8);
