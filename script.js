@@ -70,7 +70,9 @@ function generatePassword() {
   if (lowerCaseSelect === false && upperCaseSelect === false && numericSelect === false && specialCharacterSelect === false) {
     alert("Could not generate password with no selectors!");
     alert("Please choose one option to generate a password");
-    
+    randomPass = "Could not generate password!\n Please try again!";
+    return randomPass
+
   } else {
 
     // Loops as many times as the password length is
