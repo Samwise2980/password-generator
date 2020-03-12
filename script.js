@@ -33,7 +33,7 @@ function generatePassword() {
   var characterLengthSelect = prompt("How long would you like your password?\n Must be between 8 and 128 long.");
 
   // If they choose something other than the accepted range
-  while (characterLengthSelect < 8 || characterLengthSelect > 128 || characterLengthSelect == "string") {
+  while (characterLengthSelect < 8 || characterLengthSelect > 128) {
     // Then they need to be prompted to choose an acceptable number
     characterLengthSelect = prompt("Please choose a length between 8 and 128 characters");
   }
@@ -66,51 +66,12 @@ function generatePassword() {
     megaArrayGun = megaArrayGun.concat(specialCharacterSelect);
   }
 
-
-  // I need to pull each array that the user has chosen
-  // function arrayGet() {
-  //   //switch cases???
-  // }
-
-  // I need to create a line that has the length of each array chosen added up to a final number
-
-
-  // I need to create a mega array of each of the chosen arrays
-  
-
-  // I need to create a Math.random line that pulls from the mega array using the length from the total array length
-
-
-  // I need to make a loop as many times as the password length is
+  // Loops as many times as the password length is
   for (var i = 0; i < characterLengthSelect; i++) {
     var randomItem = megaArrayGun[Math.floor(Math.random()*megaArrayGun.length)];
     randomPass = randomPass += randomItem;
-    }
+  }
+
   console.log(megaArrayGun);
-  return randomPass
-
-//   var randomPass = Math.random().toString(36).substr(2, 8);
+  return randomPas
 }
-
-// GIVEN I need a new, secure password
-
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and/or special characters
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
