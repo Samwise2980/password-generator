@@ -63,15 +63,24 @@ function generatePassword() {
   var specialCharacterSelect = confirm("Click confirm for special characters");
 
   if (specialCharacterSelect === true) {
-    megaArrayGun = megaArrayGun.concat(specialCharacterSelect);
+    megaArrayGun = megaArrayGun.concat(specialCharacterArray);
   }
 
-  // Loops as many times as the password length is
-  for (var i = 0; i < characterLengthSelect; i++) {
-    var randomItem = megaArrayGun[Math.floor(Math.random()*megaArrayGun.length)];
-    randomPass = randomPass += randomItem;
+  // IF all options are false
+  if (lowerCaseSelect === false && upperCaseSelect === false && numericSelect === false && specialCharacterSelect === false) {
+    alert("Could not generate password with no selectors!");
+    alert("Please choose one option to generate a password");
+    
+  } else {
+
+    // Loops as many times as the password length is
+    for (var i = 0; i < characterLengthSelect; i++) {
+      var randomItem = megaArrayGun[Math.floor(Math.random()*megaArrayGun.length)];
+      randomPass = randomPass += randomItem;
+      }
+      return randomPass
   }
 
-  console.log(megaArrayGun);
-  return randomPas
+ 
 }
+
